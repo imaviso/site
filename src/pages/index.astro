@@ -1,0 +1,369 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="imaviso">
+  <div class="container">
+    <nav class="navbar">
+      <div class="nav-wrapper">
+        <div class="logo">imaviso</div>
+        <div class="nav-links">
+          <a href="https://github.com/Momoyaan" target="_blank">GitHub </a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="hero">
+      <div class="hero-content">
+        
+        <h1 class="title">hey</h1>
+        
+        <p class="description">
+         idk 
+        </p>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-logo">Copyright©️ 2025</div>
+    </footer>
+  </div>
+
+  <style>
+    :root {
+      --color-bg: #000000;
+      --color-fg: #ffffff;
+      --color-border: #333333;
+      --color-accent: #ffffff;
+      --font-mono: "JetBrains Mono", monospace;
+      --container-width: 1000px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      height: 100%;
+      width: 100%;
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+      font-family: var(--font-mono);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: var(--container-width);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--color-border);
+      border-right: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar {
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.5rem 0;
+      flex-shrink: 0;
+      background-color: #000000;
+      z-index: 100;
+      height: auto;
+    }
+
+    .nav-wrapper {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: auto;
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--color-fg);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--color-fg);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.7;
+    }
+
+    .badge {
+      color: var(--color-fg);
+      font-size: 0.75rem;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      border-bottom: 1px solid var(--color-border);
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    .hero-content {
+      width: 100%;
+    }
+
+    .tagline {
+      color: #666666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    .title {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--color-fg);
+      letter-spacing: -0.02em;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #999999;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      max-width: 600px;
+      font-family: var(--font-mono);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.65rem 1.25rem;
+      background-color: var(--color-fg);
+      color: var(--color-bg);
+      text-decoration: none;
+      border-radius: 0.375rem;
+      font-weight: 400;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      margin-bottom: 2rem;
+      border: 1px solid var(--color-fg);
+      font-family: var(--font-mono);
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background-color: transparent;
+      color: var(--color-fg);
+    }
+
+    .tabs-section {
+      margin-top: 1.5rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 2rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 1rem;
+      padding-bottom: 0;
+    }
+
+    .tab {
+      background: none;
+      border: none;
+      color: #666666;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 0.75rem 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      white-space: nowrap;
+    }
+
+    .tab.active {
+      color: var(--color-fg);
+      border-bottom-color: var(--color-fg);
+    }
+
+    .tab:hover:not(.active) {
+      color: #888888;
+    }
+
+    .code-block {
+      background-color: transparent;
+      border: 1px solid var(--color-border);
+      border-radius: 0;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .code-block code {
+      color: var(--color-fg);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .copy-icon {
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .copy-icon:hover {
+      opacity: 1;
+    }
+
+    /* Footer */
+    .footer {
+      /* border-top: 1px solid var(--color-border); */
+      padding: 1rem 1rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .footer-logo {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--color-fg);
+    }
+
+    .hero::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .hero::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .hero::-webkit-scrollbar-thumb {
+      background: #333333;
+      border-radius: 3px;
+    }
+
+    .hero::-webkit-scrollbar-thumb:hover {
+      background: #555555;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .container {
+        width: 100%;
+        border-left: none;
+        border-right: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+
+      .title {
+        font-size: 1.75rem;
+      }
+
+      .tabs {
+        gap: 1rem;
+        overflow-x: auto;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .description {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --container-width: 100%;
+      }
+
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .tabs {
+        gap: 0.5rem;
+      }
+
+      .tab {
+        font-size: 0.75rem;
+        padding: 0.5rem 0;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .code-block {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+
+</Layout>
