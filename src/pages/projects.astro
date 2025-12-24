@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import universImage from "../assets/univers.png";
+import subsonicImage from "../assets/subsonic.png";
 import nixosImage from "../assets/nixos.png";
 ---
 
@@ -41,13 +42,34 @@ import nixosImage from "../assets/nixos.png";
             </div>
           </div>
 
+          <!-- Subsonic Project -->
+          <div class="border border-[var(--color-border)] p-6 transition-all duration-200 hover:border-[var(--color-fg)]">
+            <div class="mb-4">
+              <img src={subsonicImage.src} alt="Subsonic Music Server" class="w-full h-auto border border-[var(--color-border)]" />
+            </div>
+            <h2 class="font-[var(--font-mono)] text-xl font-normal mb-2 text-[var(--color-fg)]">
+              <a href="https://github.com/imaviso/subsonic" target="_blank" class="hover:opacity-70 transition-opacity duration-200">Subsonic</a>
+            </h2>
+            <p class="text-[0.9rem] text-[#999999] mb-4 leading-[1.6] font-[var(--font-mono)]">
+              A lightweight, self-hosted music streaming server implementing the Subsonic API and OpenSubsonic extensions. Built with Rust, Axum, and SQLite, featuring automatic library scanning, multi-user support, and compatibility with popular Subsonic clients. Also made a sample modern React web interface using TanStack Router and shadcn/ui components.
+            </p>
+            <div class="flex gap-4 flex-wrap">
+              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Rust</span>
+              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Axum</span>
+              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">SQLite</span>
+              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Typescript</span>
+              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">React</span>
+              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">TanStack Router</span>
+            </div>
+          </div>
+
           <!-- NixOS Project -->
           <div class="border border-[var(--color-border)] p-6 transition-all duration-200 hover:border-[var(--color-fg)]">
             <div class="mb-4">
               <img src={nixosImage.src} alt="NixOS Configuration" class="w-full h-auto border border-[var(--color-border)]" />
             </div>
             <h2 class="font-[var(--font-mono)] text-xl font-normal mb-2 text-[var(--color-fg)]">
-              <a href="https://github.com/imaviso/nixos-config" target="_blank" class="hover:opacity-70 transition-opacity duration-200">NixOS Configuration</a>
+              <a href="https://github.com/imaviso/yunyun-dotfiles" target="_blank" class="hover:opacity-70 transition-opacity duration-200">NixOS Configuration</a>
             </h2>
             <p class="text-[0.9rem] text-[#999999] mb-4 leading-[1.6] font-[var(--font-mono)]">
             A declarative NixOS system configuration leveraging Flakes and Home-Manager for reproducible development environments. Features a modern Wayland desktop with the Niri scrollable-tiling compositor, quickshell integration, and a minimalist dark theme. Optimized for keyboard-driven workflows with Neovim and modern terminal emulators (Foot/Ghostty).
