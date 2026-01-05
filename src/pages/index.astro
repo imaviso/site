@@ -1,34 +1,51 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="imaviso">
   <div class="w-[1000px] max-lg:w-full h-screen flex flex-col border-x border-[var(--color-border)] max-lg:border-x-0 relative overflow-hidden">
-    <nav class="border-b border-[var(--color-border)] py-6 shrink-0 bg-black z-[100]">
-      <div class="max-w-full mx-auto px-8 flex justify-between items-center">
-        <a href="/" class="font-[var(--font-mono)] text-xl font-normal tracking-wider text-[var(--color-fg)] no-underline hover:opacity-70 transition-opacity duration-200">imaviso</a>
-        <div class="flex gap-8 items-center max-md:gap-4 max-md:flex-wrap max-md:text-[0.85rem] max-[480px]:flex-col max-[480px]:gap-3">
-          <a href="/projects" class="text-[var(--color-fg)] no-underline text-[0.95rem] transition-opacity duration-200 flex items-center gap-2 hover:opacity-70">Projects</a>
-          <a href="https://github.com/imaviso" target="_blank" class="text-[var(--color-fg)] no-underline text-[0.95rem] transition-opacity duration-200 flex items-center gap-2 hover:opacity-70">GitHub</a>
-        </div>
-      </div>
-    </nav>
+    <Nav currentPath="/" />
 
-    <main class="flex-1 flex py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-4">
+    <main id="main-content" class="flex-1 flex py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-4">
       <div class="w-full">
-        
-        <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.2] mb-4 text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[1.75rem] max-[480px]:text-2xl">Hello, I'm imaviso.</h1>
-        
-        <p class="text-[0.9rem] text-[#999999] mb-6 leading-[1.6] max-w-[600px] font-[var(--font-mono)] max-md:text-[0.85rem]">
-        I'm a software engineer passionate about building robust, maintainable systems and exploring innovative technologies. I specialize in full-stack development and reproducible system configurations. Currently working with <a href="https://nixos.org" class="text-[var(--color-fg)] no-underline border-b border-[var(--color-fg)] transition-all duration-200 cursor-pointer hover:opacity-70">NixOS</a> to create declarative development environments.
-        </p>
+
+        <!-- Terminal Prompt Decoration -->
+        <div class="animate-fade-in mb-6">
+          <div class="font-[var(--font-mono)] text-[0.8rem] text-[var(--color-muted)] flex items-center gap-1">
+            <span class="text-[var(--color-accent)]">visitor</span>
+            <span class="text-[var(--color-fg)]">@</span>
+            <span class="text-[var(--color-accent)]">imaviso.com<span>
+            <span class="text-[var(--color-muted)]">:</span>
+            <span class="text-[var(--color-muted)]">~</span>
+            <span class="text-[var(--color-fg)]">$</span>
+            <span class="ml-1">cat about.txt</span>
+          </div>
+        </div>
+
+        <!-- Typewriter Headline -->
+        <div class="animate-fade-in animation-delay-100">
+          <div class="typewriter-container mb-4">
+            <h1 class="typewriter font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.2] text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[1.75rem] max-[480px]:text-2xl">Hello, I'm imaviso.</h1>
+          </div>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider animation-delay-300 animate-fade-in">
+          <span>// about</span>
+        </div>
+
+        <!-- Description -->
+        <div class="animate-fade-in animation-delay-500">
+          <p class="text-[0.9rem] text-[var(--color-muted)] mb-6 leading-[1.6] max-w-[600px] font-[var(--font-mono)] max-md:text-[0.85rem]">
+          I'm a software engineer passionate about building robust, maintainable systems and exploring innovative technologies. I specialize in full-stack development and reproducible system configurations. Currently working with <a href="https://nixos.org" class="text-[var(--color-fg)] no-underline border-b border-[var(--color-fg)] transition-all duration-200 cursor-pointer hover:opacity-70 hover:border-opacity-70">NixOS</a> to create declarative development environments.
+          </p>
+        </div>
 
       </div>
     </main>
 
-    <footer class="p-4 text-center shrink-0">
-      <div class="font-[var(--font-mono)] text-[11px] font-normal tracking-wider text-[var(--color-fg)]">Copyright © 2025</div>
-    </footer>
+    <Footer />
   </div>
-
 </Layout>

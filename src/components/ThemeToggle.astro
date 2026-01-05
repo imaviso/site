@@ -1,0 +1,107 @@
+---
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class="p-2 text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-fg)]"
+  aria-label="Toggle dark/light mode"
+>
+  <!-- Sun icon (shown in dark mode) -->
+  <svg
+    class="theme-icon sun-icon w-5 h-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2"/>
+    <path d="M12 20v2"/>
+    <path d="m4.93 4.93 1.41 1.41"/>
+    <path d="m17.66 17.66 1.41 1.41"/>
+    <path d="M2 12h2"/>
+    <path d="M20 12h2"/>
+    <path d="m6.34 17.66-1.41 1.41"/>
+    <path d="m19.07 4.93-1.41 1.41"/>
+  </svg>
+  <!-- Moon icon (shown in light mode) -->
+  <svg
+    class="theme-icon moon-icon w-5 h-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+  </svg>
+</button>
+
+<style>
+  .theme-icon {
+    transition: opacity 0.2s ease, transform 0.3s ease;
+  }
+  
+  /* Dark mode (default): show sun, hide moon */
+  :global(html:not(.light)) .sun-icon {
+    display: block;
+    opacity: 1;
+  }
+  
+  :global(html:not(.light)) .moon-icon {
+    display: none;
+    opacity: 0;
+  }
+  
+  /* Light mode: show moon, hide sun */
+  :global(html.light) .sun-icon {
+    display: none;
+    opacity: 0;
+  }
+  
+  :global(html.light) .moon-icon {
+    display: block;
+    opacity: 1;
+  }
+  
+  #theme-toggle:hover .theme-icon {
+    transform: rotate(15deg);
+  }
+</style>
+
+<script>
+  function initTheme() {
+    const toggle = document.getElementById('theme-toggle');
+    
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Default to dark mode unless explicitly set to light
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light');
+    } else if (savedTheme === 'dark') {
+      document.documentElement.classList.remove('light');
+    } else if (!prefersDark) {
+      // Only use system preference if no saved preference
+      document.documentElement.classList.add('light');
+    }
+    
+    toggle?.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  }
+  
+  // Run on initial load
+  initTheme();
+  
+  // Re-run after view transitions
+  document.addEventListener('astro:after-swap', initTheme);
+</script>

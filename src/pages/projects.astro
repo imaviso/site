@@ -1,111 +1,78 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import universImage from "../assets/univers.png";
 import subsonicImage from "../assets/subsonic.png";
 import nixosImage from "../assets/nixos.png";
+
+const projects = [
+  {
+    title: "UniVERS",
+    description: "A centralized event reservation system featuring automated approval workflows, real-time venue availability tracking, and integrated equipment management. Built with a React frontend and Spring Boot backend, this system streamlines event coordination with hierarchical approvals and automated notifications.",
+    href: "https://github.com/imaviso/univers",
+    image: universImage,
+    imageAlt: "UniVERS Project",
+    tags: ["Typescript", "React", "Java", "Spring Boot"],
+  },
+  {
+    title: "Subsonic",
+    description: "A lightweight, self-hosted music streaming server implementing the Subsonic API and OpenSubsonic extensions. Built with Rust, Axum, and SQLite, featuring automatic library scanning, multi-user support, and compatibility with popular Subsonic clients. Includes a modern React web client deployable as a standalone web app or installable as a cross-platform desktop application via Electron.",
+    href: "https://github.com/imaviso/subsonic",
+    image: subsonicImage,
+    imageAlt: "Subsonic Music Server",
+    tags: ["Rust", "Axum", "SQLite", "Typescript", "React", "TanStack Router"],
+  },
+  {
+    title: "NixOS Configuration",
+    description: "A declarative NixOS system configuration leveraging Flakes and Home-Manager for reproducible development environments. Features a modern Wayland desktop with the Niri scrollable-tiling compositor, quickshell integration, and a minimalist dark theme. Optimized for keyboard-driven workflows with Neovim and modern terminal emulators (Foot/Ghostty).",
+    href: "https://github.com/imaviso/yunyun-dotfiles",
+    image: nixosImage,
+    imageAlt: "NixOS Configuration",
+    tags: ["NixOS", "Nix", "Linux", "Neovim", "Niri", "Quickshell"],
+  },
+];
 ---
 
 <Layout title="Projects - imaviso" preloadImage={universImage.src}>
   <div class="w-[1000px] max-lg:w-full h-screen flex flex-col border-x border-[var(--color-border)] max-lg:border-x-0 relative overflow-hidden">
-    <nav class="border-b border-[var(--color-border)] py-6 shrink-0 bg-black z-[100]">
-      <div class="max-w-full mx-auto px-8 flex justify-between items-center">
-        <a href="/" class="font-[var(--font-mono)] text-xl font-normal tracking-wider text-[var(--color-fg)] no-underline hover:opacity-70 transition-opacity duration-200">imaviso</a>
-        <div class="flex gap-8 items-center max-md:gap-4 max-md:flex-wrap max-md:text-[0.85rem] max-[480px]:flex-col max-[480px]:gap-3">
-          <a href="/projects" class="text-[var(--color-fg)] no-underline text-[0.95rem] transition-opacity duration-200 flex items-center gap-2 opacity-100 border-b border-[var(--color-fg)]">Projects</a>
-          <a href="https://github.com/imaviso" target="_blank" class="text-[var(--color-fg)] no-underline text-[0.95rem] transition-opacity duration-200 flex items-center gap-2 hover:opacity-70">GitHub</a>
-        </div>
-      </div>
-    </nav>
+    <Nav currentPath="/projects" />
 
-    <main class="flex-1 flex items-start justify-center py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-4">
+    <main id="main-content" class="flex-1 flex items-start justify-center py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-4">
       <div class="w-full">
-        
-        <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.2] mb-8 text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[1.75rem] max-[480px]:text-2xl">Projects</h1>
-        
+
+        <!-- Terminal Prompt -->
+        <div class="animate-fade-in mb-4">
+          <div class="font-[var(--font-mono)] text-[0.8rem] text-[var(--color-muted)] flex items-center gap-1">
+            <span class="text-[var(--color-accent)]">visitor</span>
+            <span class="text-[var(--color-fg)]">@</span>
+            <span class="text-[var(--color-accent)]">imaviso.com</span>
+            <span class="text-[var(--color-muted)]">:</span>
+            <span class="text-[var(--color-muted)]">~</span>
+            <span class="text-[var(--color-fg)]">$</span>
+            <span class="ml-1">ls ./projects</span>
+          </div>
+        </div>
+
+        <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.2] mb-2 text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[1.75rem] max-[480px]:text-2xl animate-fade-in animation-delay-100">Projects</h1>
+
+        <!-- Section Divider -->
+        <div class="section-divider animate-fade-in animation-delay-200">
+          <span>// featured work</span>
+        </div>
+
         <div class="space-y-8">
-          <!-- UniVERS Project -->
-          <div class="border border-[var(--color-border)] p-6 transition-all duration-200 hover:border-[var(--color-fg)]">
-            <div class="mb-4">
-              <img src={universImage.src} alt="UniVERS Project" class="w-full h-auto border border-[var(--color-border)]" />
+          {projects.map((project, index) => (
+            <div style={`animation-delay: ${(index + 2) * 100}ms`} class="animate-fade-in-up">
+              <ProjectCard {...project} index={index + 1} />
             </div>
-            <h2 class="font-[var(--font-mono)] text-xl font-normal mb-2 text-[var(--color-fg)]">
-              <a href="https://github.com/imaviso/univers" target="_blank" class="hover:opacity-70 transition-opacity duration-200">UniVERS</a>
-            </h2>
-            <p class="text-[0.9rem] text-[#999999] mb-4 leading-[1.6] font-[var(--font-mono)]">
-             A centralized event reservation system featuring automated approval workflows, real-time venue availability tracking, and integrated equipment management. Built with a React frontend and Spring Boot backend, this system streamlines event coordination with hierarchical approvals and automated notifications.
-            </p>
-            <div class="flex gap-4 flex-wrap">
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Typescript</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">React</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Java</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Spring Boot</span>
-            </div>
-          </div>
-
-          <!-- Subsonic Project -->
-          <div class="border border-[var(--color-border)] p-6 transition-all duration-200 hover:border-[var(--color-fg)]">
-            <div class="mb-4">
-              <img src={subsonicImage.src} alt="Subsonic Music Server" class="w-full h-auto border border-[var(--color-border)]" />
-            </div>
-            <h2 class="font-[var(--font-mono)] text-xl font-normal mb-2 text-[var(--color-fg)]">
-              <a href="https://github.com/imaviso/subsonic" target="_blank" class="hover:opacity-70 transition-opacity duration-200">Subsonic</a>
-            </h2>
-            <p class="text-[0.9rem] text-[#999999] mb-4 leading-[1.6] font-[var(--font-mono)]">
-               A lightweight, self-hosted music streaming server implementing the Subsonic API and OpenSubsonic extensions. Built with Rust, Axum, and SQLite, featuring automatic library scanning, multi-user support, and compatibility with popular Subsonic clients. Includes a modern React web client deployable as a standalone web app or installable as a cross-platform desktop application via Electron.
-            </p>
-            <div class="flex gap-4 flex-wrap">
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Rust</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Axum</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">SQLite</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Typescript</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">React</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">TanStack Router</span>
-            </div>
-          </div>
-
-          <!-- NixOS Project -->
-          <div class="border border-[var(--color-border)] p-6 transition-all duration-200 hover:border-[var(--color-fg)]">
-            <div class="mb-4">
-              <img src={nixosImage.src} alt="NixOS Configuration" class="w-full h-auto border border-[var(--color-border)]" />
-            </div>
-            <h2 class="font-[var(--font-mono)] text-xl font-normal mb-2 text-[var(--color-fg)]">
-              <a href="https://github.com/imaviso/yunyun-dotfiles" target="_blank" class="hover:opacity-70 transition-opacity duration-200">NixOS Configuration</a>
-            </h2>
-            <p class="text-[0.9rem] text-[#999999] mb-4 leading-[1.6] font-[var(--font-mono)]">
-            A declarative NixOS system configuration leveraging Flakes and Home-Manager for reproducible development environments. Features a modern Wayland desktop with the Niri scrollable-tiling compositor, quickshell integration, and a minimalist dark theme. Optimized for keyboard-driven workflows with Neovim and modern terminal emulators (Foot/Ghostty).
-            </p>
-            <div class="flex gap-4 flex-wrap">
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">NixOS</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Nix</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Linux</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Neovim</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Niri</span>
-              <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Quickshell</span>
-            </div>
-          </div>
-
-          <!-- Add more project cards here -->
-          <!-- <div class="border border-[var(--color-border)] p-6 transition-all duration-200 hover:border-[var(--color-fg)]"> -->
-          <!--   <h2 class="font-[var(--font-mono)] text-xl font-normal mb-2 text-[var(--color-fg)]"> -->
-          <!--     <a href="#" class="hover:opacity-70 transition-opacity duration-200">Another Project</a> -->
-          <!--   </h2> -->
-          <!--   <p class="text-[0.9rem] text-[#999999] mb-4 leading-[1.6] font-[var(--font-mono)]"> -->
-          <!--     Description of another project you've worked on. Keep it concise but informative. -->
-          <!--   </p> -->
-          <!--   <div class="flex gap-4 flex-wrap"> -->
-          <!--     <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">NixOS</span> -->
-          <!--     <span class="text-[0.75rem] text-[#666666] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)]">Linux</span> -->
-          <!--   </div> -->
-          <!-- </div> -->
-
+          ))}
         </div>
 
       </div>
     </main>
 
-    <footer class="p-4 text-center shrink-0">
-      <div class="font-[var(--font-mono)] text-[11px] font-normal tracking-wider text-[var(--color-fg)]">Copyright © 2025</div>
-    </footer>
+    <Footer />
   </div>
-
 </Layout>
