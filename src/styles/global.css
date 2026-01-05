@@ -394,6 +394,28 @@ html.light .nav-link:hover {
 }
 
 /* ==================== */
+/* ARROW ANIMATION      */
+/* ==================== */
+
+@keyframes arrowSlide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.arrow-animate {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+.group:hover .arrow-animate {
+  animation: arrowSlide 0.8s ease-in-out infinite;
+}
+
+/* ==================== */
 /* MOBILE MENU          */
 /* ==================== */
 
@@ -462,6 +484,10 @@ html.light .nav-link:hover {
   }
 
   .mobile-menu-open {
+    animation: none;
+  }
+
+  .group:hover .arrow-animate {
     animation: none;
   }
 }
