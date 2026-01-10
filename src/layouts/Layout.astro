@@ -21,9 +21,8 @@ const { title, preloadImage } = Astro.props;
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <!-- Preload protected font -->
+    <link rel="preload" href="/fonts/a7f3c9d2.woff2" as="font" type="font/woff2" crossorigin>
     {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
     <ViewTransitions />
     <!-- Prevent flash of wrong theme -->
@@ -36,14 +35,6 @@ const { title, preloadImage } = Astro.props;
         }
       })();
     </script>
-    <style>
-      @font-face {
-        font-family: "JetBrains Mono", monospace;
-        font-weight: 400;
-        font-style:  normal;
-        font-display: swap;
-      }
-    </style>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>

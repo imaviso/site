@@ -1,7 +1,16 @@
 @import "tailwindcss";
 
+/* Protected font - subsetted and obfuscated */
+@font-face {
+  font-family: "TX02";
+  src: url("/fonts/a7f3c9d2.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-mono: "JetBrains Mono", monospace;
+  --font-mono: "TX02", monospace;
 
   /* Dark mode colors (default) */
   --color-bg: #000000;
@@ -35,21 +44,21 @@ body {
 }
 
 /* Dot background pattern - Dark mode */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.15) 1px,
-    transparent 1px
-  );
-  background-size: 32px 32px;
-  pointer-events: none;
-  z-index: -1;
-  mask-image: linear-gradient(to bottom, black 0%, transparent 70%);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 70%);
-}
+/* body::before { */
+/*   content: ""; */
+/*   position: fixed; */
+/*   inset: 0; */
+/*   background-image: radial-gradient( */
+/*     circle, */
+/*     rgba(255, 255, 255, 0.15) 1px, */
+/*     transparent 1px */
+/*   ); */
+/*   background-size: 32px 32px; */
+/*   pointer-events: none; */
+/*   z-index: -1; */
+/*   mask-image: linear-gradient(to bottom, black 0%, transparent 70%); */
+/*   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 70%); */
+/* } */
 
 /* Ambient glow effect for depth - Dark mode */
 /* body::after { */
@@ -74,13 +83,13 @@ html.light {
 }
 
 /* Dot pattern - Light mode */
-html.light body::before {
-  background-image: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.12) 1px,
-    transparent 1px
-  );
-}
+/* html.light body::before { */
+/*   background-image: radial-gradient( */
+/*     circle, */
+/*     rgba(0, 0, 0, 0.12) 1px, */
+/*     transparent 1px */
+/*   ); */
+/* } */
 
 /* Ambient glow - Light mode */
 /* html.light body::after { */
