@@ -17,54 +17,86 @@ const { title, description, href, image, imageAlt, tags, index } = Astro.props;
 const formattedIndex = index.toString().padStart(2, '0');
 ---
 
-<div class="bracket-card border border-[var(--color-border)] p-6 transition-all duration-300 hover:border-[var(--color-fg)] group bg-[var(--color-bg)]">
-  <div class="flex flex-col md:flex-row gap-6">
-    <!-- Image: 40% width on desktop, full on mobile -->
-    <div class="w-full md:w-[40%] shrink-0">
-      <div class="border border-[var(--color-border)] overflow-hidden">
-        <img 
-          src={image.src} 
-          alt={imageAlt} 
-          class="w-full h-auto"
-          loading="lazy"
-        />
+<article class="project-card group">
+  <a 
+    href={href} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="block"
+  >
+    <div class="bracket-card border border-[var(--color-border)] transition-all duration-300 overflow-hidden">
+      
+      <!-- Image Section -->
+      <div class="relative overflow-hidden">
+        <!-- Project Index Overlay -->
+        <div class="absolute top-4 left-4 z-10">
+          <span class="project-index bg-[var(--color-bg)] px-2 py-1 border border-[var(--color-border)]">
+            {formattedIndex}
+          </span>
+        </div>
+        
+        <!-- Image with hover effect -->
+        <div class="aspect-[16/9] overflow-hidden bg-[var(--color-bg-elevated)]">
+          <img 
+            src={image.src} 
+            alt={imageAlt} 
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            loading="lazy"
+          />
+        </div>
+        
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-transparent opacity-60"></div>
       </div>
-    </div>
-    
-    <!-- Content -->
-    <div class="flex-1 flex flex-col justify-center">
-      <!-- Title with number and arrow -->
-      <h2 class="font-[var(--font-mono)] text-xl font-normal mb-3 text-[var(--color-fg)]">
-        <a 
-          href={href} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 hover:opacity-80 transition-opacity duration-200"
-        >
-          <span class="text-[var(--color-muted)]">{formattedIndex}.</span>
-          <span>{title}</span>
-          <span class="arrow-animate inline-flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50 group-hover:opacity-100 transition-opacity duration-200">
-              <path d="M5 12h14"/>
-              <path d="m12 5 7 7-7 7"/>
+      
+      <!-- Content Section -->
+      <div class="p-6 max-md:p-5">
+        <!-- Title with arrow -->
+        <div class="flex items-start justify-between gap-4 mb-3">
+          <h2 class="font-[var(--font-mono)] text-lg font-normal text-[var(--color-fg)] leading-tight">
+            {title}
+          </h2>
+          <span class="arrow-animate flex-shrink-0 mt-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-dim)] group-hover:text-[var(--color-fg)] transition-colors duration-200">
+              <path d="M7 17L17 7"/>
+              <path d="M7 7h10v10"/>
             </svg>
           </span>
-        </a>
-      </h2>
-      
-      <!-- Description -->
-      <p class="text-[0.85rem] text-[var(--color-muted)] mb-4 leading-[1.7] font-[var(--font-mono)]">
-        {description}
-      </p>
-      
-      <!-- Tags -->
-      <div class="flex gap-2 flex-wrap">
-        {tags.map((tag) => (
-          <span class="text-[0.7rem] text-[var(--color-muted)] font-[var(--font-mono)] px-2 py-1 border border-[var(--color-border)] transition-all duration-200 group-hover:border-[var(--color-muted)] group-hover:text-[var(--color-fg)]">
-            {tag}
-          </span>
-        ))}
+        </div>
+        
+        <!-- Description -->
+        <p class="text-[0.8rem] text-[var(--color-muted)] mb-5 leading-[1.7] font-[var(--font-mono)] line-clamp-3">
+          {description}
+        </p>
+        
+        <!-- Tags -->
+        <div class="flex gap-2 flex-wrap">
+          {tags.slice(0, 5).map((tag) => (
+            <span class="tech-tag">
+              {tag}
+            </span>
+          ))}
+          {tags.length > 5 && (
+            <span class="tech-tag opacity-60">
+              +{tags.length - 5}
+            </span>
+          )}
+        </div>
       </div>
+      
     </div>
-  </div>
-</div>
+  </a>
+</article>
+
+<style>
+  .project-card {
+    container-type: inline-size;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

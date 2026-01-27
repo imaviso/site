@@ -54,38 +54,64 @@ const projects = [
 ---
 
 <Layout title="Projects - imaviso" preloadImage={universImage.src}>
-  <div class="w-[1000px] max-lg:w-full h-screen flex flex-col border-x border-[var(--color-border)] max-lg:border-x-0 relative overflow-hidden">
+  <div class="main-container">
     <Nav currentPath="/projects" />
 
-    <main id="main-content" class="flex-1 flex items-start justify-center py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-4">
-      <div class="w-full">
+    <main id="main-content" class="flex-1 py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-6 max-sm:px-4">
+      
+      <!-- Scanline effect -->
+      <div class="scanline"></div>
+      
+      <div class="w-full max-w-4xl mx-auto">
 
-        <!-- Terminal Prompt -->
-        <div class="animate-fade-in mb-4">
-          <div class="font-[var(--font-mono)] text-[0.8rem] text-[var(--color-muted)] flex items-center gap-1">
-            <span class="text-[var(--color-accent)]">visitor</span>
-            <span class="text-[var(--color-fg)]">@</span>
-            <span class="text-[var(--color-accent)]">imaviso.com</span>
-            <span class="text-[var(--color-muted)]">:</span>
-            <span class="text-[var(--color-muted)]">~</span>
-            <span class="text-[var(--color-fg)]">$</span>
-            <span class="ml-1">ls ./projects</span>
+        <!-- Header Section -->
+        <header class="mb-10">
+          <!-- Terminal Prompt -->
+          <div class="animate-fade-in mb-6">
+            <div class="terminal-prompt">
+              <span class="user">visitor</span>
+              <span class="separator">@</span>
+              <span class="user">imaviso.com</span>
+              <span class="separator">:</span>
+              <span class="path">~</span>
+              <span class="separator">$</span>
+              <span class="command ml-1">ls ./projects</span>
+            </div>
           </div>
-        </div>
 
-        <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.2] mb-2 text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[1.75rem] max-[480px]:text-2xl animate-fade-in animation-delay-100">Projects</h1>
+          <!-- Page Title -->
+          <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.1] text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[2rem] max-sm:text-[1.5rem] animate-fade-in-up animation-delay-100">
+            Projects
+          </h1>
+          
+          <!-- Subtitle -->
+          <p class="mt-4 text-[0.9rem] text-[var(--color-muted)] font-[var(--font-mono)] animate-fade-in animation-delay-200">
+            A collection of things I've built
+          </p>
+        </header>
 
         <!-- Section Divider -->
-        <div class="section-divider animate-fade-in animation-delay-200">
+        <div class="section-divider animate-fade-in animation-delay-300">
           <span>// featured work</span>
         </div>
 
-        <div class="space-y-8">
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div style={`animation-delay: ${(index + 2) * 100}ms`} class="animate-fade-in-up">
+            <div 
+              style={`animation-delay: ${(index + 3) * 100}ms`} 
+              class="animate-fade-in-up"
+            >
               <ProjectCard {...project} index={index + 1} />
             </div>
           ))}
+        </div>
+
+        <!-- Footer Note -->
+        <div class="mt-12 pt-8 border-t border-[var(--color-border)] animate-fade-in animation-delay-800">
+          <p class="text-[0.75rem] text-[var(--color-dim)] font-[var(--font-mono)] text-center">
+            More projects available on <a href="https://github.com/imaviso" target="_blank" rel="noopener noreferrer" class="text-link">GitHub</a>
+          </p>
         </div>
 
       </div>

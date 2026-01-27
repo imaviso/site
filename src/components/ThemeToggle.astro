@@ -3,12 +3,12 @@
 
 <button
   type="button"
-  class="theme-toggle p-2 text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-fg)]"
+  class="theme-toggle p-2 text-[var(--color-dim)] hover:text-[var(--color-fg)] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-fg)] rounded-sm hover:bg-[var(--color-glow)]"
   aria-label="Toggle dark/light mode"
 >
   <!-- Sun icon (shown in dark mode) -->
   <svg
-    class="theme-icon sun-icon w-5 h-5"
+    class="theme-icon sun-icon w-4 h-4"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
@@ -29,7 +29,7 @@
   </svg>
   <!-- Moon icon (shown in light mode) -->
   <svg
-    class="theme-icon moon-icon w-5 h-5"
+    class="theme-icon moon-icon w-4 h-4"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
@@ -44,7 +44,7 @@
 
 <style>
   .theme-icon {
-    transition: opacity 0.2s ease, transform 0.3s ease;
+    transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
   /* Dark mode (default): show sun, hide moon */
@@ -70,7 +70,7 @@
   }
   
   .theme-toggle:hover .theme-icon {
-    transform: rotate(15deg);
+    transform: rotate(15deg) scale(1.1);
   }
 </style>
 

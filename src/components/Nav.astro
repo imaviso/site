@@ -14,20 +14,21 @@ const navLinks = [
 ];
 ---
 
-<nav class="border-b border-[var(--color-border)] py-4 md:py-6 shrink-0 bg-[var(--color-bg)] z-[100] transition-colors duration-300">
-  <div class="max-w-full mx-auto px-4 md:px-8 flex justify-between items-center">
+<nav class="border-b border-[var(--color-border)] shrink-0 bg-[var(--color-bg)] z-[100] transition-colors duration-300">
+  <!-- Main nav bar -->
+  <div class="flex justify-between items-center h-14 px-6 md:px-8">
     <!-- Logo -->
     <a 
       href="/" 
-      class="font-[var(--font-mono)] text-lg md:text-xl font-normal tracking-wider text-[var(--color-fg)] no-underline hover:opacity-70 transition-all duration-200 flex items-center gap-1 md:gap-2"
+      class="font-[var(--font-mono)] text-base font-normal tracking-wide text-[var(--color-fg)] no-underline transition-all duration-200 flex items-center gap-1.5 group"
     >
-      <span class="text-[var(--color-muted)]">&gt;</span>
-      <span>imaviso</span>
+      <span class="text-[var(--color-dim)] group-hover:text-[var(--color-muted)] transition-colors duration-200">&gt;</span>
+      <span class="group-hover:tracking-wider transition-all duration-200">imaviso</span>
       <span class="cursor-blink text-[var(--color-accent)]">_</span>
     </a>
 
     <!-- Desktop Navigation -->
-    <div class="hidden md:flex gap-8 items-center">
+    <div class="hidden md:flex gap-6 items-center">
       {navLinks.map((link) => {
         const isActive = currentPath === link.href;
         return (
@@ -36,14 +37,14 @@ const navLinks = [
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener noreferrer" : undefined}
             class:list={[
-              "nav-link text-[var(--color-fg)] no-underline text-[0.95rem] transition-all duration-200 flex items-center gap-2",
+              "nav-link text-[0.85rem] no-underline transition-all duration-200 flex items-center gap-1.5",
               isActive ? "active" : ""
             ]}
             aria-current={isActive ? "page" : undefined}
           >
-            {link.label}
+            <span>{link.label}</span>
             {link.external && (
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                 <polyline points="15 3 21 3 21 9"/>
                 <line x1="10" y1="14" x2="21" y2="3"/>
@@ -52,27 +53,31 @@ const navLinks = [
           </a>
         );
       })}
+      
+      <!-- Separator -->
+      <div class="w-px h-4 bg-[var(--color-border)]"></div>
+      
       <ThemeToggle />
     </div>
 
     <!-- Mobile: Theme Toggle + Hamburger -->
-    <div class="flex md:hidden items-center gap-2">
+    <div class="flex md:hidden items-center gap-1">
       <ThemeToggle />
       <button
         id="mobile-menu-btn"
         type="button"
-        class="p-2 text-[var(--color-fg)] hover:text-[var(--color-muted)] transition-colors duration-200"
+        class="p-2.5 text-[var(--color-muted)] hover:text-[var(--color-fg)] transition-colors duration-200"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
         <!-- Hamburger icon -->
-        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" y1="6" x2="20" y2="6"/>
           <line x1="4" y1="12" x2="20" y2="12"/>
           <line x1="4" y1="18" x2="20" y2="18"/>
         </svg>
         <!-- Close icon -->
-        <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"/>
           <line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
@@ -81,8 +86,8 @@ const navLinks = [
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] mt-4 mobile-menu-open">
-    <div class="px-4 py-4 flex flex-col gap-4">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] mobile-menu-open bg-[var(--color-bg)]">
+    <div class="px-6 py-4 flex flex-col gap-1">
       {navLinks.map((link) => {
         const isActive = currentPath === link.href;
         return (
@@ -91,20 +96,20 @@ const navLinks = [
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener noreferrer" : undefined}
             class:list={[
-              "nav-link text-[var(--color-fg)] no-underline text-[0.95rem] transition-all duration-200 flex items-center justify-between py-2 border-b border-[var(--color-border)]",
-              isActive ? "active" : ""
+              "flex items-center justify-between py-3 px-2 text-[0.9rem] font-[var(--font-mono)] transition-all duration-200 -mx-2 rounded-sm",
+              isActive ? "text-[var(--color-fg)] bg-[var(--color-glow)]" : "text-[var(--color-muted)] hover:text-[var(--color-fg)] hover:bg-[var(--color-glow)]"
             ]}
             aria-current={isActive ? "page" : undefined}
           >
             <span>{link.label}</span>
             {link.external ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                 <polyline points="15 3 21 3 21 9"/>
                 <line x1="10" y1="14" x2="21" y2="3"/>
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40">
                 <path d="M5 12h14"/>
                 <path d="m12 5 7 7-7 7"/>
               </svg>

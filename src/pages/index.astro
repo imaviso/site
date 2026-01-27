@@ -5,42 +5,86 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="imaviso">
-  <div class="w-[1000px] max-lg:w-full h-screen flex flex-col border-x border-[var(--color-border)] max-lg:border-x-0 relative overflow-hidden">
+  <div class="main-container">
     <Nav currentPath="/" />
 
-    <main id="main-content" class="flex-1 flex py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-4">
-      <div class="w-full">
+    <main id="main-content" class="flex-1 flex items-center py-16 px-10 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-10 max-md:px-6 max-sm:px-4">
+      
+      <!-- Scanline effect -->
+      <div class="scanline"></div>
 
-        <!-- Terminal Prompt Decoration -->
-        <div class="animate-fade-in mb-6">
-          <div class="font-[var(--font-mono)] text-[0.8rem] text-[var(--color-muted)] flex items-center gap-1">
-            <span class="text-[var(--color-accent)]">visitor</span>
-            <span class="text-[var(--color-fg)]">@</span>
-            <span class="text-[var(--color-accent)]">imaviso.com<span>
-            <span class="text-[var(--color-muted)]">:</span>
-            <span class="text-[var(--color-muted)]">~</span>
-            <span class="text-[var(--color-fg)]">$</span>
-            <span class="ml-1">cat about.txt</span>
+      <div class="w-full max-w-2xl">
+
+        <!-- Terminal Prompt Badge -->
+        <div class="animate-fade-in mb-10">
+          <div class="terminal-prompt">
+            <span class="user">visitor</span>
+            <span class="separator">@</span>
+            <span class="user">imaviso.com</span>
+            <span class="separator">:</span>
+            <span class="path">~</span>
+            <span class="separator">$</span>
+            <span class="command ml-1">cat about.txt</span>
           </div>
         </div>
 
-        <!-- Typewriter Headline -->
-        <div class="animate-fade-in animation-delay-100">
-          <div class="typewriter-container mb-4">
-            <h1 class="typewriter font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.2] text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[1.75rem] max-[480px]:text-2xl">Hello, I'm imaviso.</h1>
+        <!-- Hero Section -->
+        <div class="mb-12">
+          <!-- Main Headline -->
+          <div class="animate-fade-in-up animation-delay-200 mb-6">
+            <h1 class="font-[var(--font-mono)] text-[3rem] font-normal leading-[1.1] text-[var(--color-fg)] tracking-[-0.03em] max-lg:text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem]">Hello, I'm imaviso.</h1>
           </div>
+
+          <!-- Tagline -->
+          <p class="animate-fade-in-up animation-delay-400 font-[var(--font-mono)] text-lg text-[var(--color-muted)] mb-0 max-md:text-base">
+            Software Engineer
+          </p>
         </div>
 
         <!-- Section Divider -->
-        <div class="section-divider animation-delay-300 animate-fade-in">
+        <div class="section-divider animate-fade-in animation-delay-500">
           <span>// about</span>
         </div>
 
         <!-- Description -->
-        <div class="animate-fade-in animation-delay-500">
-          <p class="text-[0.9rem] text-[var(--color-muted)] mb-6 leading-[1.6] max-w-[600px] font-[var(--font-mono)] max-md:text-[0.85rem]">
-          I'm a software engineer passionate about building robust, maintainable systems and exploring innovative technologies. I specialize in full-stack development and reproducible system configurations. Currently working with <a href="https://nixos.org" class="text-[var(--color-fg)] no-underline border-b border-[var(--color-fg)] transition-all duration-200 cursor-pointer hover:opacity-70 hover:border-opacity-70">NixOS</a> to create declarative development environments.
+        <div class="animate-fade-in-up animation-delay-600">
+          <p class="text-[0.9rem] text-[var(--color-muted)] leading-[1.8] font-[var(--font-mono)] max-md:text-[0.85rem]">
+            I'm a software engineer passionate about building robust, maintainable systems and exploring innovative technologies. I specialize in full-stack development and reproducible system configurations. Currently working with <a href="https://nixos.org" target="_blank" rel="noopener noreferrer" class="text-link">NixOS</a> to create declarative development environments.
           </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="mt-12 flex flex-wrap gap-4 animate-fade-in-up animation-delay-700">
+          <a 
+            href="/projects" 
+            class="bracket-card inline-flex items-center gap-3 px-5 py-3 border border-[var(--color-border)] text-[var(--color-fg)] font-[var(--font-mono)] text-[0.85rem] no-underline transition-all duration-200 group"
+          >
+            <span>View Projects</span>
+            <span class="arrow-animate">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60 group-hover:opacity-100 transition-opacity duration-200">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+          
+          <a 
+            href="/contact" 
+            class="inline-flex items-center gap-3 px-5 py-3 border border-transparent text-[var(--color-muted)] font-[var(--font-mono)] text-[0.85rem] no-underline transition-all duration-200 hover:text-[var(--color-fg)] hover:border-[var(--color-border)]"
+          >
+            <span>Get in Touch</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Status Indicator -->
+        <div class="mt-16 animate-fade-in animation-delay-800">
+          <div class="status-indicator">
+            <span>Available for new opportunities</span>
+          </div>
         </div>
 
       </div>
