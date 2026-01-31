@@ -6,10 +6,10 @@ import Footer from "../components/Footer.astro";
 
 <Layout title="404 - Page Not Found">
   <div class="main-container">
-    <Nav />
+    <Nav transition:persist />
 
-    <main id="main-content" class="flex-1 flex items-center justify-center py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-6 max-sm:px-4 relative">
-      
+    <main id="main-content" class="flex-1 flex items-center justify-center py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-6 max-sm:px-4 relative" transition:animate="fade" transition:name="main-content">
+
       <!-- Scanline effect -->
       <div class="scanline"></div>
       
@@ -76,7 +76,7 @@ import Footer from "../components/Footer.astro";
       </div>
     </main>
 
-    <Footer />
+    <Footer transition:persist />
   </div>
 </Layout>
 

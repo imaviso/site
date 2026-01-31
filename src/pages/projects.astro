@@ -10,55 +10,60 @@ import tuiImage from "../assets/tui.png";
 import machinereportImage from "../assets/machinreport.png";
 
 const projects = [
-  {
-    title: "UniVERS",
-    description: "A centralized event reservation system featuring automated approval workflows, real-time venue availability tracking, and integrated equipment management. Built with a React frontend and Spring Boot backend, this system streamlines event coordination with hierarchical approvals and automated notifications.",
-    href: "https://github.com/imaviso/univers",
-    image: universImage,
-    imageAlt: "UniVERS Project",
-    tags: ["Typescript", "React", "Java", "Spring Boot"],
-  },
-  {
-    title: "Subsonic",
-    description: "A lightweight, self-hosted music streaming server implementing the Subsonic API and OpenSubsonic extensions. Built with Rust, Axum, and SQLite, featuring automatic library scanning, multi-user support, and compatibility with popular Subsonic clients. Includes a modern React web client deployable as a standalone web app or installable as a cross-platform desktop application via Electron.",
-    href: "https://github.com/imaviso/subsonic",
-    image: subsonicImage,
-    imageAlt: "Subsonic Music Server",
-    tags: ["Rust", "Axum", "SQLite", "Typescript", "React", "TanStack Router"],
-  },
-  {
-    title: "Subsonic TUI",
-    description: "A terminal-based music player client for Subsonic and OpenSubsonic compatible servers. Built with Rust and Ratatui, featuring album browsing, queue management, and keyboard-driven navigation. Designed for users who prefer a lightweight, terminal-native music experience.",
-    href: "https://github.com/imaviso/subsonic-tui",
-    image: tuiImage,
-    imageAlt: "Subsonic TUI",
-    tags: ["Rust", "Ratatui", "TUI", "Subsonic"],
-  },
-  {
-    title: "MachineReport",
-    description: "A blazingly fast system fetch tool for Linux, forked from microfetch with improved GPU detection. Executes in ~1ms (~140x faster than fastfetch) with a minimal ~412kb binary. Features reliable detection for AMD, NVIDIA, Intel, and virtual GPUs with minimal dependencies (only libc).",
-    href: "https://github.com/imaviso/machinereport",
-    image: machinereportImage,
-    imageAlt: "MachineReport System Info",
-    tags: ["Rust", "Linux", "CLI"],
-  },
-  {
-    title: "NixOS Configuration",
-    description: "A declarative NixOS system configuration leveraging Flakes and Home-Manager for reproducible development environments. Features a modern Wayland desktop with the Niri scrollable-tiling compositor, quickshell integration, and a minimalist dark theme. Optimized for keyboard-driven workflows with Neovim and modern terminal emulators (Foot/Ghostty).",
-    href: "https://github.com/imaviso/yunyun-dotfiles",
-    image: nixosImage,
-    imageAlt: "NixOS Configuration",
-    tags: ["NixOS", "Nix", "Linux", "Neovim", "Niri", "Quickshell"],
-  },
+	{
+		title: "UniVERS",
+		description:
+			"A centralized event reservation system featuring automated approval workflows, real-time venue availability tracking, and integrated equipment management. Built with a React frontend and Spring Boot backend, this system streamlines event coordination with hierarchical approvals and automated notifications.",
+		href: "https://github.com/imaviso/univers",
+		image: universImage,
+		imageAlt: "UniVERS Project",
+		tags: ["Typescript", "React", "Java", "Spring Boot"],
+	},
+	{
+		title: "Subsonic",
+		description:
+			"A lightweight, self-hosted music streaming server implementing the Subsonic API and OpenSubsonic extensions. Built with Rust, Axum, and SQLite, featuring automatic library scanning, multi-user support, and compatibility with popular Subsonic clients. Includes a modern React web client deployable as a standalone web app or installable as a cross-platform desktop application via Electron.",
+		href: "https://github.com/imaviso/subsonic",
+		image: subsonicImage,
+		imageAlt: "Subsonic Music Server",
+		tags: ["Rust", "Axum", "SQLite", "Typescript", "React", "TanStack Router"],
+	},
+	{
+		title: "Subsonic TUI",
+		description:
+			"A terminal-based music player client for Subsonic and OpenSubsonic compatible servers. Built with Rust and Ratatui, featuring album browsing, queue management, and keyboard-driven navigation. Designed for users who prefer a lightweight, terminal-native music experience.",
+		href: "https://github.com/imaviso/subsonic-tui",
+		image: tuiImage,
+		imageAlt: "Subsonic TUI",
+		tags: ["Rust", "Ratatui", "TUI", "Subsonic"],
+	},
+	{
+		title: "MachineReport",
+		description:
+			"A blazingly fast system fetch tool for Linux, forked from microfetch with improved GPU detection. Executes in ~1ms (~140x faster than fastfetch) with a minimal ~412kb binary. Features reliable detection for AMD, NVIDIA, Intel, and virtual GPUs with minimal dependencies (only libc).",
+		href: "https://github.com/imaviso/machinereport",
+		image: machinereportImage,
+		imageAlt: "MachineReport System Info",
+		tags: ["Rust", "Linux", "CLI"],
+	},
+	{
+		title: "NixOS Configuration",
+		description:
+			"A declarative NixOS system configuration leveraging Flakes and Home-Manager for reproducible development environments. Features a modern Wayland desktop with the Niri scrollable-tiling compositor, quickshell integration, and a minimalist dark theme. Optimized for keyboard-driven workflows with Neovim and modern terminal emulators (Foot/Ghostty).",
+		href: "https://github.com/imaviso/yunyun-dotfiles",
+		image: nixosImage,
+		imageAlt: "NixOS Configuration",
+		tags: ["NixOS", "Nix", "Linux", "Neovim", "Niri", "Quickshell"],
+	},
 ];
 ---
 
 <Layout title="Projects - imaviso" preloadImage={universImage.src}>
   <div class="main-container">
-    <Nav currentPath="/projects" />
+    <Nav currentPath="/projects" transition:persist />
 
-    <main id="main-content" class="flex-1 py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-6 max-sm:px-4">
-      
+    <main id="main-content" class="flex-1 py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-6 max-sm:px-4" transition:animate="fade" transition:name="main-content">
+
       <!-- Scanline effect -->
       <div class="scanline"></div>
       
@@ -117,6 +122,6 @@ const projects = [
       </div>
     </main>
 
-    <Footer />
+    <Footer transition:persist />
   </div>
 </Layout>

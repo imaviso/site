@@ -2,19 +2,19 @@
 import type { ImageMetadata } from "astro";
 
 interface Props {
-  title: string;
-  description: string;
-  href: string;
-  image: ImageMetadata;
-  imageAlt: string;
-  tags: string[];
-  index: number;
+	title: string;
+	description: string;
+	href: string;
+	image: ImageMetadata;
+	imageAlt: string;
+	tags: string[];
+	index: number;
 }
 
 const { title, description, href, image, imageAlt, tags, index } = Astro.props;
 
 // Format index as 01, 02, etc.
-const formattedIndex = index.toString().padStart(2, '0');
+const formattedIndex = index.toString().padStart(2, "0");
 ---
 
 <article class="project-card group">

@@ -699,10 +699,81 @@ button:focus-visible {
 /* VIEW TRANSITIONS     */
 /* ==================== */
 
-::view-transition-old(root),
+/* Root transition - crossfade with slide */
+::view-transition-old(root) {
+  animation: fade-out 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 ::view-transition-new(root) {
-  animation-duration: 0.25s;
+  animation: fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Main content transitions */
+::view-transition-old(main-content),
+::view-transition-new(main-content) {
+  animation-duration: 0.35s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(main-content) {
+  animation-name: fade-slide-out;
+}
+
+::view-transition-new(main-content) {
+  animation-name: fade-slide-in;
+}
+
+/* Navigation persists - minimal transition */
+::view-transition-old(nav),
+::view-transition-new(nav) {
+  animation: none;
+}
+
+/* Footer persists - minimal transition */
+::view-transition-old(footer),
+::view-transition-new(footer) {
+  animation: none;
+}
+
+/* Keyframes for view transitions */
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==================== */
