@@ -62,17 +62,17 @@ const projects = [
   <div class="main-container">
     <Nav currentPath="/projects" transition:persist />
 
-    <main id="main-content" class="flex-1 py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-6 max-sm:px-4" transition:animate="fade" transition:name="main-content">
+    <main id="main-content" class="flex-1 py-12 px-8 border-b border-[var(--color-border)] max-md:py-8 max-md:px-6 max-sm:px-4">
 
       <!-- Scanline effect -->
-      <div class="scanline"></div>
+      
       
       <div class="w-full max-w-4xl mx-auto">
 
         <!-- Header Section -->
         <header class="mb-10">
           <!-- Terminal Prompt -->
-          <div class="animate-fade-in mb-6">
+          <div class=" mb-6">
             <div class="terminal-prompt">
               <span class="user">visitor</span>
               <span class="separator">@</span>
@@ -85,18 +85,18 @@ const projects = [
           </div>
 
           <!-- Page Title -->
-          <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.1] text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[2rem] max-sm:text-[1.5rem] animate-fade-in-up animation-delay-100">
+          <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.1] text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[2rem] max-sm:text-[1.5rem]  ">
             Projects
           </h1>
           
           <!-- Subtitle -->
-          <p class="mt-4 text-[0.9rem] text-[var(--color-muted)] font-[var(--font-mono)] animate-fade-in animation-delay-200">
+          <p class="mt-4 text-[0.9rem] text-[var(--color-muted)] font-[var(--font-mono)]  ">
             A collection of things I've built
           </p>
         </header>
 
         <!-- Section Divider -->
-        <div class="section-divider animate-fade-in animation-delay-300">
+        <div class="section-divider  ">
           <span>// featured work</span>
         </div>
 
@@ -105,7 +105,7 @@ const projects = [
           {projects.map((project, index) => (
             <div 
               style={`animation-delay: ${(index + 3) * 100}ms`} 
-              class="animate-fade-in-up"
+              class=""
             >
               <ProjectCard {...project} index={index + 1} />
             </div>
@@ -113,7 +113,7 @@ const projects = [
         </div>
 
         <!-- Footer Note -->
-        <div class="mt-12 pt-8 border-t border-[var(--color-border)] animate-fade-in animation-delay-800">
+        <div class="mt-12 pt-8 border-t border-[var(--color-border)]  ">
           <p class="text-[0.75rem] text-[var(--color-dim)] font-[var(--font-mono)] text-center">
             More projects available on <a href="https://github.com/imaviso" target="_blank" rel="noopener noreferrer" class="text-link">GitHub</a>
           </p>

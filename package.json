@@ -1,20 +1,25 @@
 {
-	"name": "@example/basics",
-	"type": "module",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"@tailwindcss/vite": "^4.1.18",
-		"astro": "^5.15.8",
-		"tailwindcss": "^4.1.18"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.3.13"
-	}
+  "name": "@example/basics",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.15.8",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.45.0",
+    "oxlint": "^1.60.0"
+  }
 }

@@ -34,17 +34,17 @@ const contactLinks = [
   <div class="main-container">
     <Nav currentPath="/contact" transition:persist />
 
-    <main id="main-content" class="flex-1 flex items-center py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-6 max-sm:px-4" transition:animate="fade" transition:name="main-content">
+    <main id="main-content" class="flex-1 flex items-center py-12 px-8 border-b border-[var(--color-border)] max-md:py-8 max-md:px-6 max-sm:px-4">
 
       <!-- Scanline effect -->
-      <div class="scanline"></div>
+      
       
       <div class="w-full max-w-xl">
 
         <!-- Header Section -->
         <header class="mb-10">
           <!-- Terminal Prompt -->
-          <div class="animate-fade-in mb-6">
+          <div class=" mb-6">
             <div class="terminal-prompt">
               <span class="user">visitor</span>
               <span class="separator">@</span>
@@ -57,18 +57,18 @@ const contactLinks = [
           </div>
 
           <!-- Page Title -->
-          <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.1] text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[2rem] max-sm:text-[1.5rem] animate-fade-in-up animation-delay-100">
+          <h1 class="font-[var(--font-mono)] text-[2.5rem] font-normal leading-[1.1] text-[var(--color-fg)] tracking-[-0.02em] max-md:text-[2rem] max-sm:text-[1.5rem]  ">
             Contact
           </h1>
         </header>
 
         <!-- Section Divider -->
-        <div class="section-divider animate-fade-in animation-delay-200">
+        <div class="section-divider  ">
           <span>// get in touch</span>
         </div>
 
         <!-- Intro Text -->
-        <p class="text-[0.9rem] text-[var(--color-muted)] mb-10 leading-[1.8] font-[var(--font-mono)] max-md:text-[0.85rem] animate-fade-in animation-delay-200">
+        <p class="text-[0.9rem] text-[var(--color-muted)] mb-10 leading-[1.8] font-[var(--font-mono)] max-md:text-[0.85rem]  ">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of the channels below.
         </p>
 
@@ -77,7 +77,7 @@ const contactLinks = [
           {contactLinks.map((link, index) => (
             <div 
               style={`animation-delay: ${(index + 3) * 100}ms`} 
-              class="animate-fade-in-up"
+              class=""
             >
               <div class="bracket-card border border-[var(--color-border)] transition-all duration-300 group">
                 <div class="flex items-center p-5 gap-5">
@@ -106,7 +106,7 @@ const contactLinks = [
                       <button
                         id="copy-email-btn"
                         type="button"
-                        class="p-2 text-[var(--color-dim)] hover:text-[var(--color-fg)] transition-all duration-200 hover:bg-[var(--color-glow)] rounded-sm"
+                        class="w-11 h-11 flex items-center justify-center text-[var(--color-dim)] hover:text-[var(--color-fg)] transition-all duration-200 hover:bg-[var(--color-glow)] rounded-sm"
                         aria-label="Copy email to clipboard"
                         data-email={email}
                       >
@@ -125,7 +125,7 @@ const contactLinks = [
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="p-2 text-[var(--color-dim)] hover:text-[var(--color-fg)] transition-all duration-200"
+                        class="w-11 h-11 flex items-center justify-center text-[var(--color-dim)] hover:text-[var(--color-fg)] transition-all duration-200"
                         aria-label={`Open ${link.name}`}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -143,7 +143,7 @@ const contactLinks = [
         </div>
 
         <!-- Response Time Note -->
-        <div class="mt-12 animate-fade-in animation-delay-700">
+        <div class="mt-12  ">
           <p class="text-[0.75rem] text-[var(--color-dim)] font-[var(--font-mono)]">
             I typically respond within 24-48 hours.
           </p>

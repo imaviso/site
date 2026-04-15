@@ -8,17 +8,17 @@ import Footer from "../components/Footer.astro";
   <div class="main-container">
     <Nav transition:persist />
 
-    <main id="main-content" class="flex-1 flex items-center justify-center py-12 px-8 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-8 max-md:px-6 max-sm:px-4 relative" transition:animate="fade" transition:name="main-content">
+    <main id="main-content" class="flex-1 flex items-center justify-center py-12 px-8 border-b border-[var(--color-border)] max-md:py-8 max-md:px-6 max-sm:px-4 relative">
 
       <!-- Scanline effect -->
-      <div class="scanline"></div>
+      
       
       <div class="text-center max-w-md">
         
         <!-- Terminal Error Block -->
-        <div class="animate-fade-in mb-10">
+        <div class=" mb-10">
           <div class="inline-flex items-center gap-3 px-4 py-2 bg-[var(--color-glow)] border border-[var(--color-error)] border-opacity-30 rounded-sm">
-            <span class="w-2 h-2 rounded-full bg-[var(--color-error)] animate-pulse-subtle"></span>
+            <span class="w-2 h-2 rounded-full bg-[var(--color-error)] "></span>
             <span class="font-[var(--font-mono)] text-[0.75rem] text-[var(--color-error)] uppercase tracking-wider">
               Error: path not found
             </span>
@@ -26,9 +26,9 @@ import Footer from "../components/Footer.astro";
         </div>
 
         <!-- Big 404 with glitch effect -->
-        <div class="animate-scale-in animation-delay-100 relative">
+        <div class="  relative">
           <h1 
-            class="font-[var(--font-mono)] text-[8rem] font-normal leading-[1] text-[var(--color-fg)] tracking-[-0.05em] max-md:text-[6rem] max-sm:text-[4rem] select-none error-number"
+            class="font-[var(--font-mono)] text-[8rem] font-normal leading-[1] text-[var(--color-fg)] tracking-[-0.05em] max-md:text-[6rem] max-sm:text-[4rem] select-none"
           >
             404
           </h1>
@@ -38,14 +38,14 @@ import Footer from "../components/Footer.astro";
         </div>
         
         <!-- Description -->
-        <div class="mt-8 animate-fade-in-up animation-delay-300">
+        <div class="mt-8  ">
           <p class="text-[0.9rem] text-[var(--color-muted)] leading-[1.7] font-[var(--font-mono)] max-md:text-[0.85rem]">
             The page you're looking for doesn't exist or has been moved.
           </p>
         </div>
 
         <!-- Terminal suggestion -->
-        <div class="mt-8 animate-fade-in animation-delay-500">
+        <div class="mt-8  ">
           <div class="inline-block text-left">
             <div class="terminal-prompt">
               <span class="user">visitor</span>
@@ -60,7 +60,7 @@ import Footer from "../components/Footer.astro";
         </div>
 
         <!-- Action Button -->
-        <div class="mt-10 animate-fade-in-up animation-delay-600">
+        <div class="mt-10  ">
           <a 
             href="/" 
             class="bracket-card inline-flex items-center gap-3 px-6 py-3 border border-[var(--color-border)] text-[var(--color-fg)] font-[var(--font-mono)] text-[0.85rem] no-underline transition-all duration-200 group"
@@ -80,41 +80,3 @@ import Footer from "../components/Footer.astro";
   </div>
 </Layout>
 
-<style>
-  .error-number {
-    text-shadow: 
-      0 0 80px rgba(255, 107, 107, 0.1),
-      0 0 40px rgba(255, 107, 107, 0.05);
-  }
-  
-  .error-number:hover {
-    animation: glitch 0.3s ease-in-out;
-  }
-  
-  @keyframes glitch {
-    0% {
-      transform: translate(0);
-      text-shadow: 0 0 80px rgba(255, 107, 107, 0.1);
-    }
-    20% {
-      transform: translate(-3px, 3px);
-      text-shadow: 3px 0 rgba(255, 107, 107, 0.4), -3px 0 rgba(100, 200, 255, 0.4);
-    }
-    40% {
-      transform: translate(-3px, -3px);
-      text-shadow: -3px 0 rgba(255, 107, 107, 0.4), 3px 0 rgba(100, 200, 255, 0.4);
-    }
-    60% {
-      transform: translate(3px, 3px);
-      text-shadow: 3px 0 rgba(100, 200, 255, 0.4), -3px 0 rgba(255, 107, 107, 0.4);
-    }
-    80% {
-      transform: translate(3px, -3px);
-      text-shadow: -3px 0 rgba(100, 200, 255, 0.4), 3px 0 rgba(255, 107, 107, 0.4);
-    }
-    100% {
-      transform: translate(0);
-      text-shadow: 0 0 80px rgba(255, 107, 107, 0.1);
-    }
-  }
-</style>

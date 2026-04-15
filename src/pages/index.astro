@@ -8,15 +8,15 @@ import Footer from "../components/Footer.astro";
   <div class="main-container">
     <Nav currentPath="/" transition:persist />
 
-    <main id="main-content" class="flex-1 flex items-center py-16 px-10 border-b border-[var(--color-border)] overflow-y-auto min-h-0 custom-scrollbar max-md:py-10 max-md:px-6 max-sm:px-4" transition:animate="fade" transition:name="main-content">
+    <main id="main-content" class="flex-1 flex items-center py-16 px-10 border-b border-[var(--color-border)] max-md:py-10 max-md:px-6 max-sm:px-4">
 
       <!-- Scanline effect -->
-      <div class="scanline"></div>
+      
 
       <div class="w-full max-w-2xl">
 
         <!-- Terminal Prompt Badge -->
-        <div class="animate-fade-in mb-10">
+        <div class=" mb-10">
           <div class="terminal-prompt">
             <span class="user">visitor</span>
             <span class="separator">@</span>
@@ -31,30 +31,30 @@ import Footer from "../components/Footer.astro";
         <!-- Hero Section -->
         <div class="mb-12">
           <!-- Main Headline -->
-          <div class="animate-fade-in-up animation-delay-200 mb-6">
+          <div class="  mb-6">
             <h1 class="font-[var(--font-mono)] text-[3rem] font-normal leading-[1.1] text-[var(--color-fg)] tracking-[-0.03em] max-lg:text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem]">Hello, I'm imaviso.</h1>
           </div>
 
           <!-- Tagline -->
-          <p class="animate-fade-in-up animation-delay-400 font-[var(--font-mono)] text-lg text-[var(--color-muted)] mb-0 max-md:text-base">
+          <p class="  font-[var(--font-mono)] text-lg text-[var(--color-muted)] mb-0 max-md:text-base">
             Software Engineer
           </p>
         </div>
 
         <!-- Section Divider -->
-        <div class="section-divider animate-fade-in animation-delay-500">
+        <div class="section-divider  ">
           <span>// about</span>
         </div>
 
         <!-- Description -->
-        <div class="animate-fade-in-up animation-delay-600">
+        <div class=" ">
           <p class="text-[0.9rem] text-[var(--color-muted)] leading-[1.8] font-[var(--font-mono)] max-md:text-[0.85rem]">
             I'm a software engineer passionate about building robust, maintainable systems and exploring innovative technologies. I specialize in full-stack development and reproducible system configurations. Currently working with <a href="https://nixos.org" target="_blank" rel="noopener noreferrer" class="text-link">NixOS</a> to create declarative development environments.
           </p>
         </div>
 
         <!-- Quick Links -->
-        <div class="mt-12 flex flex-wrap gap-4 animate-fade-in-up animation-delay-700">
+        <div class="mt-12 flex flex-wrap gap-4  ">
           <a 
             href="/projects" 
             class="bracket-card inline-flex items-center gap-3 px-5 py-3 border border-[var(--color-border)] text-[var(--color-fg)] font-[var(--font-mono)] text-[0.85rem] no-underline transition-all duration-200 group"
@@ -81,7 +81,7 @@ import Footer from "../components/Footer.astro";
         </div>
 
         <!-- Status Indicator -->
-        <div class="mt-16 animate-fade-in animation-delay-800">
+        <div class="mt-16  ">
           <div class="status-indicator">
             <span>Available for new opportunities</span>
           </div>
